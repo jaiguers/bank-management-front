@@ -58,7 +58,7 @@ export const CardsPage = () => {
 
     useEffect(() => {
         if (statusCode) {
-            if (statusCode.code == 200) {
+            if (statusCode.status == 200) {
                 Swal.fire('Crear tarjeta', statusCode.msg, 'success');
             }
             else
@@ -98,8 +98,8 @@ export const CardsPage = () => {
                                 </Form.Group>
                                 <Form.Group as={Col} name={accountType} onChange={selectCardAccChange} controlId="accountType">
                                     <Form.Label>Tipo de cuenta</Form.Label>
-                                    <Form.Select defaultValue="Choose...">
-                                        <option>Choose...</option>
+                                    <Form.Select defaultValue="">
+                                        <option value="">Choose...</option>
                                         <option value="Saving">Saving</option>
                                         <option value="Credit">Credit</option>
                                         <option value="Debit">Debit</option>
@@ -108,8 +108,8 @@ export const CardsPage = () => {
 
                                 <Form.Group as={Col} name={cardType} onChange={selectCardTypeChange} controlId="cardType">
                                     <Form.Label>Tipo de tarjeta</Form.Label>
-                                    <Form.Select defaultValue="Choose...">
-                                        <option>Choose...</option>
+                                    <Form.Select defaultValue="">
+                                        <option value="">Choose...</option>
                                         <option value="Virtual">Virtual</option>
                                         <option value="Physical">Fisica</option>
                                     </Form.Select>

@@ -5,16 +5,17 @@ import { Navbar } from '../../calendar/components/Navbar';
 import { CardsAccordion } from '../';
 
 export const DashboardPage = () => {
-    const { cards, startLoadingProducts } = useCardStore();
+    const { cards, startLoadingProducts, startLoadingbanks } = useCardStore();
 
     useEffect(() => {
         startLoadingProducts()
+        startLoadingbanks()
     }, [])
 
     return (
         <>
             <Navbar />
-            <CardsAccordion cards={cards}/>
+            <CardsAccordion cards={cards} />
         </>
     );
 }

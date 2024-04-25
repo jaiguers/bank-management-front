@@ -5,9 +5,8 @@ export const cardsSlice = createSlice({
     name: 'cards',
     initialState: {
         isLoadingEvents: true,
-        cards: [
-            // tempEvent
-        ],
+        cards: [],
+        banks: [],
         activeEvent: null,
         statusCode: undefined
     },
@@ -19,10 +18,10 @@ export const cardsSlice = createSlice({
         onAddNewCard: (state, { payload }) => {
             state.cards.push(payload);
             state.activeEvent = null;
-            state.statusCode = undefined;
+            state.statusCode = payload;
         },
         onUpdateCard: (state, { payload }) => {
-            state.statusCode = undefined;
+            state.statusCode = payload;
             state.cards = state.cards.map(card => {
                 if (card.id === payload.id) {
                     return payload;
@@ -47,10 +46,24 @@ export const cardsSlice = createSlice({
                 }
             })
         },
+        onLoadbanks: (state, { payload = [] }) => {
+            state.isLoadingEvents = false;
+            payload.forEach(bank => {
+                const exists = state.banks.some(dbBank => dbBank.id === bank.id);
+                if (!exists) {
+                    state.banks.push(bank)
+                }
+            })
+        },
+        onMakeTransaction: (state, { payload }) => {
+            state.statusCode = payload;
+        },
         onLogoutCards: (state) => {
-            state.isLoadingEvents = true,
-                state.cards = []
+            state.isLoadingEvents = true
+            state.cards = []
+            state.banks = []
             state.activeEvent = null
+            state.statusCode = undefined
         }
     }
 });
@@ -64,4 +77,5 @@ export const {
     onLogoutCards,
     onSetActiveCard,
     onUpdateCard,
+    onLoadbanks,
 } = cardsSlice.actions;

@@ -13,7 +13,6 @@ import { useAuthStore } from '../hooks';
 export const AppRouter = () => {
 
     const { status, checkAuthToken } = useAuthStore();
-    // const authStatus = 'not-authenticated'; // 'authenticated'; // 'not-authenticated';
 
     useEffect(() => {
         checkAuthToken();
@@ -40,7 +39,8 @@ export const AppRouter = () => {
                     )
                     : (
                         <>
-                            <Route path="/" element={<CalendarPage />} />
+                            <Route path="/" element={<DashboardPage />} />
+                            <Route path="/calendar" element={<CalendarPage />} />
                             <Route path="/historical" element={<HistoricalPage />} />
                             <Route path="/transaction" element={<TransactionsPage />} />
                             <Route path="/cards" element={<CardsPage />} />
