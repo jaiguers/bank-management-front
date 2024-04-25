@@ -23,3 +23,4 @@ npm install
 npm run dev
 
 ```
+## Usa axios para conectarse al backend (API Rest en .Net core)
