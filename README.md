@@ -1,5 +1,6 @@
 
-# Calendar APP
+# Bank APP
+Aplicación en react para la gestion de clientes, cuentas bancarias y transacciones
 
 
 
@@ -9,6 +10,16 @@
 2. Hacer los cambios respectivos en las variables de entorno.
 
 ```
-VITE_API_URL=http://localhost:4000/api
+VITE_API_URL=http://localhost:5026/api
+
+```
+3. Ejecutar el comando para instalar las dependencias
+```
+npm install
+
+```
+4. Ejecutar con el comnado
+```
+npm run dev
 
 ```
